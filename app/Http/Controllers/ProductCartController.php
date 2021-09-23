@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Resources\ProductCartResource;
 use App\Models\Product;
 use App\Models\ProductCart;
-use Illuminate\Support\Facades\Auth;
 
 
 class ProductCartController extends Controller
@@ -26,5 +25,17 @@ class ProductCartController extends Controller
     public function show()
     {
         return ProductCartResource::collection(Auth()->user()->cart);
+    }
+
+    public function remove(ProductCart $productCart)
+    {
+        $this->authorize('remove', $productCart);
+
+        $productCart->delete();
+        return [
+            'data' => [
+                'message' => 'Item removed from cart',
+            ]
+        ];
     }
 }

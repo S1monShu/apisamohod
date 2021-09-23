@@ -71,4 +71,38 @@ class User extends Authenticatable
     {
         return $this->hasMany(ProductCart::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function cartToOrder(Order $order)
+    {
+        $this->cart->each(function ($productCart) use ($order) {
+            ProductOrder::factory()
+                ->for($order)
+                ->create([
+                    'product_id' => $productCart->product_id,
+                ]);
+        });
+        return $this;
+    }
+
+    public function clearCart()
+    {
+        $this->cart()->delete();
+        return $this;
+    }
+
+    public function ordering()
+    {
+        $order = Order::factory()
+            ->for($this)
+            ->create();
+
+        $this->cartToOrder($order)->clearCart();
+
+        return $order;
+    }
 }

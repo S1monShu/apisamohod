@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductCartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
@@ -25,7 +26,12 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->middleware(['auth:api']);
     Route::middleware(['can:isUser,App\Models\User'])->group(function () {
+
         Route::post('/cart/{product}', [ProductCartController::class, 'addProduct']);
         Route::get('/cart', [ProductCartController::class, 'show']);
+        Route::delete('/cart/{productCart}', [ProductCartController::class, 'remove']);
+
+        Route::post('/order', [OrderController::class, 'store']);
+        Route::get('/order', [OrderController::class, 'index']);
     });
 });
