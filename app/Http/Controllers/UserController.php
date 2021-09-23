@@ -26,7 +26,7 @@ class UserController extends Controller
         ];
     }
 
-    public function logout(Request $request)
+    public function logout()
     {
         Auth()->user()->clearToken();
 
@@ -40,7 +40,7 @@ class UserController extends Controller
     public function signup(SignupRequest $request)
     {
         $user = User::create($request->all());
-
+        $user->setRole('user');
         return [
             'data' => [
                 'user_token' => $user->generateToken()

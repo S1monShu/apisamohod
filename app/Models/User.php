@@ -39,9 +39,6 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
-        self::creating(function ($model) {
-            $model->setRole('user');
-        });
     }
 
 
