@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
+use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
@@ -24,5 +25,22 @@ class ProductController extends Controller
                 'message' => 'Product added',
             ]
         ])->setStatusCode(201);
+    }
+
+    public function remove(Product $product)
+    {
+        $product->delete();
+        return [
+            'data' => [
+                'message' => 'Product removed',
+            ]
+        ];
+    }
+
+    public function update(Product $product, Request $request)
+    {
+        $product->update($request->all());
+
+        return new ProductResource($product);
     }
 }

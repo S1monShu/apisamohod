@@ -42,9 +42,13 @@ Route::middleware(['auth:api'])->group(function () {
     });
 
     Route::middleware(['can:isAdmin,App\Models\User'])->group(function () {
+
         Route::prefix('product')->group(function () {
             Route::post('/', [ProductController::class, 'store']);
+            Route::delete('/{product}', [ProductController::class, 'remove']);
+            Route::patch('/{product}', [ProductController::class, 'update']);
         });
+
     });
 
 });

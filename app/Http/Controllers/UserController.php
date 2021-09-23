@@ -39,8 +39,11 @@ class UserController extends Controller
 
     public function signup(SignupRequest $request)
     {
-        $user = User::create($request->all());
-        $user->setRole('user');
+        $user = User::make($request->all())
+            ->setRole('user');
+
+        $user->save();
+
         return [
             'data' => [
                 'user_token' => $user->generateToken()
