@@ -13,6 +13,7 @@ class SignupRequest extends ApiRequest
     public function rules()
     {
         return [
+            'fio' => ['required', 'string'],
             'email' => ['required', 'unique:users', 'email'],
             'password' => ['required', 'min:6'],
         ];

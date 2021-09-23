@@ -440,3 +440,5 @@
 192.168.13.77 - - [20/Sep/2021:03:42:57 -0700] "POST /api-shop/cart/2 HTTP/1.1" 201 342 "-" "PostmanRuntime/7.28.4"
 192.168.13.77 - - [20/Sep/2021:03:42:58 -0700] "POST /api-shop/cart/2 HTTP/1.1" 201 342 "-" "PostmanRuntime/7.28.4"
 192.168.13.77 - - [20/Sep/2021:03:42:59 -0700] "POST /api-shop/cart/2 HTTP/1.1" 201 342 "-" "PostmanRuntime/7.28.4"
+192.168.13.77 - - [23/Sep/2021:06:25:35 -0700] "POST /api-shop/signup HTTP/1.1" 422 466 "-" "PostmanRuntime/7.28.4"
+192.168.13.77 - - [23/Sep/2021:06:26:18 -0700] "POST /api-shop/signup HTTP/1.1" 422 503 "-" "PostmanRuntime/7.28.4"
