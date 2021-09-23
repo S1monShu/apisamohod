@@ -25,13 +25,24 @@ Route::get('/products', [ProductController::class, 'index']);
 
 Route::middleware(['auth:api'])->group(function () {
     Route::get('/logout', [UserController::class, 'logout'])->middleware(['auth:api']);
+
     Route::middleware(['can:isUser,App\Models\User'])->group(function () {
 
-        Route::post('/cart/{product}', [ProductCartController::class, 'addProduct']);
-        Route::get('/cart', [ProductCartController::class, 'show']);
-        Route::delete('/cart/{productCart}', [ProductCartController::class, 'remove']);
+        Route::prefix('cart')->group(function () {
+            Route::post('/{product}', [ProductCartController::class, 'addProduct']);
+            Route::get('/', [ProductCartController::class, 'show']);
+            Route::delete('/{productCart}', [ProductCartController::class, 'remove']);
+        });
 
-        Route::post('/order', [OrderController::class, 'store']);
-        Route::get('/order', [OrderController::class, 'index']);
+        Route::prefix('order')->group(function () {
+            Route::post('/', [OrderController::class, 'store']);
+            Route::get('/', [OrderController::class, 'index']);
+        });
+
     });
+
+    Route::middleware(['can:isAdmin,App\Models\User'])->group(function () {
+
+    });
+
 });
