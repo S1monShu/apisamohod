@@ -44,10 +44,11 @@ class UserController extends Controller
 
         $user->save();
 
-        return [
+
+        return response()->json([
             'data' => [
                 'user_token' => $user->generateToken()
             ]
-        ];
+        ])->setStatusCode(201);
     }
 }
