@@ -23,7 +23,7 @@ class ProductCartPolicy
 
     public function remove(User $user, ProductCart $productCart)
     {
-        return $user->cart()->find($productCart)
+        return $user->cart()->find($productCart)->count()
             ? Response::allow()
             : Response::deny('Forbidden for you',403);
     }
