@@ -20,7 +20,7 @@ class UserController extends Controller
         }
         Auth::login($user);
         return [
-            'data' => [
+            'content' => [
                 'user_token' => Auth::user()->generateToken()
             ]
         ];
@@ -31,7 +31,7 @@ class UserController extends Controller
         Auth()->user()->clearToken();
 
         return [
-            'data' => [
+            'content' => [
                 'message' => 'logout',
             ],
         ];
@@ -46,7 +46,7 @@ class UserController extends Controller
 
 
         return response()->json([
-            'data' => [
+            'content' => [
                 'user_token' => $user->generateToken()
             ]
         ])->setStatusCode(201);

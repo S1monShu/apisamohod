@@ -13,7 +13,6 @@ class ProductCartResource extends JsonResource
             'id' => $this->id,
             'product_id' => $this->product->id,
             'name' => $this->product->name,
-            'description' => $this->product->description,
             'price' => (int)$this->product->price,
         ];
     }

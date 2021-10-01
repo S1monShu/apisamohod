@@ -9,13 +9,13 @@ class ApiException extends HttpResponseException
     public function __construct($code = 422, $message = 'Validation error', $errors = [])
     {
         $data = [
-            'error' => [
+            'warning' => [
                 'code' => $code,
                 'message' => $message,
             ]
         ];
         if (count($errors) > 0) {
-            $data['error']['errors'] = $errors;
+            $data['warning']['warnings'] = $errors;
         }
 
         parent::__construct(response()->json($data)->setStatusCode($code));

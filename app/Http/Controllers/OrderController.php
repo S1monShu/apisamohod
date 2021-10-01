@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OrderCollection;
 use App\Http\Resources\OrderResource;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,7 @@ class OrderController extends Controller
         $order = Auth::user()->ordering();
 
         return response()->json([
-            'data' => [
+            'content' => [
                 'order_id' => $order->id,
                 'message' => 'Order is processed',
             ]
@@ -24,6 +25,6 @@ class OrderController extends Controller
 
     public function index()
     {
-       return OrderResource::collection(Auth::user()->orders);
+       return new OrderCollection(Auth::user()->orders);
     }
 }

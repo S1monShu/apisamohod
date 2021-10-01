@@ -16,7 +16,7 @@ class ProductCartController extends Controller
             'product_id' => $product->id
         ]);
         return response()->json([
-            'data' => [
+            'content' => [
                 'message' => 'Product add to card',
             ]
         ])->setStatusCode(201);
@@ -33,7 +33,7 @@ class ProductCartController extends Controller
 
         $productCart->delete();
         return [
-            'data' => [
+            'content' => [
                 'message' => 'Item removed from cart',
             ]
         ];

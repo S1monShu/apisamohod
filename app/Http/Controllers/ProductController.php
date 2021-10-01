@@ -20,7 +20,7 @@ class ProductController extends Controller
         $product = Product::factory()->create($request->all());
 
         return response()->json([
-            'data' => [
+            'content' => [
                 'id' => $product->id,
                 'message' => 'Product added',
             ]
@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         $product->delete();
         return [
-            'data' => [
+            'content' => [
                 'message' => 'Product removed',
             ]
         ];
@@ -41,6 +41,11 @@ class ProductController extends Controller
     {
         $product->update($request->all());
 
-        return new ProductResource($product);
+        return [
+            'content' => [
+                'id' => $product->id,
+                'message' => 'Product updated',
+            ]
+        ];
     }
 }
