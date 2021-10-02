@@ -16,7 +16,7 @@ class ProductCartSeeder extends Seeder
     public function run()
     {
         ProductCart::factory()->count(5)->create([
-            'user_id'=>User::where('email', 'user@christmastoy.ru')->first()->id
+            'user_id'=>User::where('email', 'user@samohod.ru')->first()->id
         ]);
 
         ProductCart::factory()->count(10)->create();

@@ -14,10 +14,11 @@ class OrderCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return $this->collection->all() + [
-                'price_all' => $this->collection->reduce(function ($sum, $item) {
-                    return $sum + $item->getPrice();
-                },0)
-            ];
+        return [
+            'content' => $this->collection,
+            'price_all' => $this->collection->reduce(function ($sum, $item) {
+                return $sum + $item->getPrice();
+            }, 0)
+        ];
     }
 }

@@ -17,7 +17,7 @@ class ProductCartController extends Controller
         ]);
         return response()->json([
             'content' => [
-                'message' => 'Product add to card',
+                'message' => 'Товар в корзине',
             ]
         ])->setStatusCode(201);
     }
@@ -34,7 +34,7 @@ class ProductCartController extends Controller
         $productCart->delete();
         return [
             'content' => [
-                'message' => 'Item removed from cart',
+                'message' => 'Позиция удалена из корзины',
             ]
         ];
     }

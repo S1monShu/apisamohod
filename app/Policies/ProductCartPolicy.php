@@ -25,7 +25,7 @@ class ProductCartPolicy
     {
         return $user->cart()->find($productCart)->count()
             ? Response::allow()
-            : Response::deny('Forbidden for you',403);
+            : Response::deny('Запрещено',403);
     }
 
 }

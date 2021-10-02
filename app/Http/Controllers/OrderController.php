@@ -18,7 +18,7 @@ class OrderController extends Controller
         return response()->json([
             'content' => [
                 'order_id' => $order->id,
-                'message' => 'Order is processed',
+                'message' => 'Заказ оформлен',
             ]
         ])->setStatusCode(201);
     }

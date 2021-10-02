@@ -25,7 +25,7 @@ class OrderPolicy
     {
         return $user->cart()->count()
             ? Response::allow()
-            : Response::deny('Cart is empty',422);
+            : Response::deny('Нет товаров для оформления заказа',422);
     }
 
 }

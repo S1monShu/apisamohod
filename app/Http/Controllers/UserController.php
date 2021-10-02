@@ -16,7 +16,7 @@ class UserController extends Controller
     {
         $user = User::where($request->all())->first();
         if (!$user) {
-            throw new ApiException(401, 'Authentication failed');
+            throw new ApiException(401, 'Неудачный вход');
         }
         Auth::login($user);
         return [
@@ -32,7 +32,7 @@ class UserController extends Controller
 
         return [
             'content' => [
-                'message' => 'logout',
+                'message' => 'Выход',
             ],
         ];
     }

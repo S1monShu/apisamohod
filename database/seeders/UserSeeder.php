@@ -16,13 +16,13 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'email' => 'admin@christmastoy.ru',
+            'email' => 'admin@samohod.ru',
             'password' => 'QWEasd123',
             'role_id' => Role::where('code', 'admin')->first()->id
         ]);
 
         User::factory()->create([
-            'email' => 'user@christmastoy.ru',
+            'email' => 'user@samohod.ru',
             'role_id' => Role::where('code', 'user')->first()->id
         ]);
 

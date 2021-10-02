@@ -15,7 +15,7 @@ class SignupRequest extends ApiRequest
         return [
             'fio' => ['required', 'string'],
             'email' => ['required', 'unique:users', 'email'],
-            'password' => ['required', 'min:4'],
+            'password' => ['required', 'min:8'],
         ];
     }
 }

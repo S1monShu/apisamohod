@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class ApiException extends HttpResponseException
 {
-    public function __construct($code = 422, $message = 'Validation error', $errors = [])
+    public function __construct($code = 422, $message = 'Несоответствие требованиям', $errors = [])
     {
         $data = [
             'warning' => [

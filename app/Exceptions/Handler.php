@@ -49,10 +49,10 @@ class Handler extends ExceptionHandler
             throw new ApiException($code, $e->getMessage());
         }
         if ($e instanceof ModelNotFoundException) {
-            throw new ApiException(404, 'Not found');
+            throw new ApiException(404, 'Не найдено');
         }
         if ($e instanceof AuthenticationException) {
-            throw new ApiException(403, 'Login failed');
+            throw new ApiException(403, 'Гостевой доступ запрещен');
         }
         return parent::render($request, $e);
     }

@@ -22,7 +22,7 @@ class ProductController extends Controller
         return response()->json([
             'content' => [
                 'id' => $product->id,
-                'message' => 'Product added',
+                'message' => 'Товар добавлен',
             ]
         ])->setStatusCode(201);
     }
@@ -32,7 +32,7 @@ class ProductController extends Controller
         $product->delete();
         return [
             'content' => [
-                'message' => 'Product removed',
+                'message' => 'Товар удален',
             ]
         ];
     }
@@ -44,7 +44,7 @@ class ProductController extends Controller
         return [
             'content' => [
                 'id' => $product->id,
-                'message' => 'Product updated',
+                'message' => 'Данные обновлены',
             ]
         ];
     }

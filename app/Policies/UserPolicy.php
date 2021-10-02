@@ -24,13 +24,13 @@ class UserPolicy
     {
         return $user->role->code === 'user'
             ? Response::allow()
-            : Response::deny('Forbidden for you',403);
+            : Response::deny('Доступ для вашей группы запрещен',403);
     }
 
     public function isAdmin(User $user)
     {
         return $user->role->code === 'admin'
             ? Response::allow()
-            : Response::deny('Forbidden for you',403);
+            : Response::deny('Доступ для вашей группы запрещен',403);
     }
 }

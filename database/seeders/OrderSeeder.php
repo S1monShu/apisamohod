@@ -20,7 +20,7 @@ class OrderSeeder extends Seeder
             ->has(ProductOrder::factory()->count(3), 'products')
             ->count(3)
             ->create([
-                'user_id' => User::where('email', 'user@christmastoy.ru')->first()->id,
+                'user_id' => User::where('email', 'user@samohod.ru')->first()->id,
             ]);
 
     }
